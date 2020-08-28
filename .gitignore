@@ -1,5 +1,8 @@
-# st
+# Custom for this repo
 st
+tags
+*.orig
+*.rej
 
 # Prerequisites
 *.d
