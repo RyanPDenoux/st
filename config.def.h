@@ -185,6 +185,13 @@ static unsigned int mousebg = 0;
 static unsigned int defaultattr = 11;
 
 /*
+ * Deviance from expected Font Weight allowed before st will pick the color
+ * pointed to by `defaultattr`. Solution lifted from gnotclub/xft fork
+ * (https://github.com/gnotclub/xst/pull/52/commits/e81286c21c50fa2d6e2437eb9017de009f642611)
+ */
+static unsigned int max_bold_weight_infelicity = 20;
+
+/*
  * Force mouse select/shortcuts while mask is active (when MODE_MOUSE is set).
  * Note that if you want to use ShiftMask with selmasks, set this to an other
  * modifier, set to 0 to not use it.
