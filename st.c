@@ -1490,7 +1490,7 @@ void
 tdeletechar(int n)
 {
 	int src, dst, size;
-	Line *line;
+	Line line;
 
 	if (n <= 0)
 	        return;
@@ -1499,7 +1499,7 @@ tdeletechar(int n)
 	size = term.col - src;
 	if (size > 0) { /* otherwise src would point beyond the array
 	                   https://stackoverflow.com/questions/29844298 */
-	        line = &term.line[term.c.y];
+	        line = term.line[term.c.y];
 	        memmove(&line[dst], &line[src], size * sizeof(Glyph));
 	}
 	tclearregion(dst + size, term.c.y, term.col-1, term.c.y, 1);
@@ -1509,7 +1509,7 @@ void
 tinsertblank(int n)
 {
 	int src, dst, size;
-	Line *line;
+	Line line;
 
 	if (n <= 0)
 		return;
@@ -1518,7 +1518,7 @@ tinsertblank(int n)
 	size = term.col - dst;
 	if (size > 0) { /* otherwise src would point beyond the array
 			   https://stackoverflow.com/questions/29844298 */
-		line = &term.line[term.c.y];
+		line = term.line[term.c.y];
 		memmove(&line[dst], &line[src], size * sizeof(Glyph));
 	}
 	tclearregion(src, term.c.y, dst - 1, term.c.y, 1);
